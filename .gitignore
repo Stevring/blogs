@@ -1,3 +1,6 @@
 yarn.lock
 docs/.vuepress/dist/
 node_modules/
+.yarn/
+.pnp.cjs
+.pnp.loader.mjs
