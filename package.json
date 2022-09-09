@@ -1,0 +1,16 @@
+{
+  "name": "vuepress-starter",
+  "version": "1.0.0",
+  "description": "for test",
+  "main": "index.js",
+  "author": "xiafeiyu",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "vuepress": "^1.9.7"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
