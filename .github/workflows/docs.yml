@@ -25,6 +25,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 7
+        run_install: true
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # if needed
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -32,14 +40,6 @@ jobs:
           node-version: 16.17.0
           # cache deps for pnpm
           cache: pnpm
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 7
-          run_install: true
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # if needed
 
       - name: Build VuePress site
         run: pnpm docs:build
