@@ -31,30 +31,19 @@ jobs:
           # choose node.js version to use
           node-version: 16.17.0
           # cache deps for pnpm
-          cache: yarn
+          cache: pnpm
 
-      - name: Setup Yarn
-        uses: borales/actions-yarn@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
-          cmd: install # will run `yarn install` command
+          version: 7
+          run_install: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # if needed
 
       - name: Build VuePress site
-        run: yarn docs:build
-
-      # please check out the docs of the workflow for more details
-      # @see https://github.com/crazy-max/ghaction-github-pages
-      # - name: Deploy to GitHub Pages
-      #   uses: crazy-max/ghaction-github-pages@v2
-      #   with:
-      #     # deploy to gh-pages branch
-      #     target_branch: gh-pages
-      #     # deploy the default output dir of VuePress
-      #     build_dir: docs/.vuepress/dist
-      #   env:
-      #     # @see https://docs.github.com/en/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm docs:build
+      
       - name: Upload arifact
         uses: actions/upload-pages-artifact@v1
         with:
