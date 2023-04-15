@@ -2,7 +2,7 @@
 
 ## Unsorted
 
-[Key-Value Observation](/iOS/property_observation)
+[Key-Value Observation](property_observation)
 
 ## Runtime
 [Blocks](Runtime/blocks)
