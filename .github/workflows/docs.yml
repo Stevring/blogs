@@ -39,9 +39,9 @@ jobs:
           # choose node.js version to use
           node-version: 16.17.0
           # cache deps for pnpm
-          cache: pnpm
+          cache: yarn
       - name: Build VuePress site
-        run: pnpm docs:build
+        run: yarn docs:build
 
       # please check out the docs of the workflow for more details
       # @see https://github.com/crazy-max/ghaction-github-pages
